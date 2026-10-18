@@ -28,6 +28,7 @@ export const PackageStructure = () => {
               <span className="font-medium text-muted">
                 <Icon
                   icon="tabler:folder"
+                    data-bcms-field="desgy-icon-icon-3" data-bcms-kind="image"
                   className="text-primary text-base inline-block me-2"
                 />
                 <span data-bcms-field="desgy-span-packages" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-packages")}>{bcms(bcmsDocumentation, "desgy-span-packages", "packages")}</span>
@@ -44,6 +45,7 @@ export const PackageStructure = () => {
                           <span className="font-medium text-muted">
                             <Icon
                               icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[0].icon-icon" data-bcms-kind="image"
                               className="text-primary text-base inline-block me-2"
                             />
                             <span data-bcms-field="desgy-span-markdown" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-markdown")}>{bcms(bcmsDocumentation, "desgy-span-markdown", "markdown")}</span>
@@ -56,6 +58,7 @@ export const PackageStructure = () => {
                           <span className="font-medium text-muted">
                             <Icon
                               icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[1].icon-icon" data-bcms-kind="image"
                               className="text-primary text-base inline-block me-2"
                             />
                             <span data-bcms-field="desgy-span-public" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-public")}>{bcms(bcmsDocumentation, "desgy-span-public", "public")}</span>
@@ -68,6 +71,7 @@ export const PackageStructure = () => {
                           <span className="font-medium text-muted">
                             <Icon
                               icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon" data-bcms-kind="image"
                               className="text-primary text-base inline-block me-2"
                             />
                             <span data-bcms-field="desgy-span-src" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-src")}>{bcms(bcmsDocumentation, "desgy-span-src", "src")}</span>
@@ -86,6 +90,7 @@ export const PackageStructure = () => {
                                 <span className="font-medium text-muted">
                                   <Icon
                                     icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-2" data-bcms-kind="image"
                                     className="text-primary text-base inline-block me-2"
                                   />
                                   <span data-bcms-field="desgy-span-app" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-app")}>{bcms(bcmsDocumentation, "desgy-span-app", "app")}</span>
@@ -106,6 +111,7 @@ export const PackageStructure = () => {
                                       <span className="font-medium text-muted">
                                         <Icon
                                           icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-3" data-bcms-kind="image"
                                           className="text-primary text-base inline-block me-2"
                                         />
                                         <span data-bcms-field="desgy-span-site" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-site")}>{bcms(bcmsDocumentation, "desgy-span-site", "(site)")}</span>
@@ -137,6 +143,7 @@ export const PackageStructure = () => {
                                             <span className="font-medium text-muted">
                                               <Icon
                                                 icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-4" data-bcms-kind="image"
                                                 className="text-primary text-base inline-block me-2"
                                               />
                                               <span data-bcms-field="desgy-span-auth" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-auth")}>{bcms(bcmsDocumentation, "desgy-span-auth", "(auth)")}</span>
@@ -167,6 +174,7 @@ export const PackageStructure = () => {
                                                     <span className="font-medium text-muted">
                                                       <Icon
                                                         icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-5" data-bcms-kind="image"
                                                         className="text-primary text-base inline-block me-2"
                                                       />
                                                       <span data-bcms-field="desgy-span-signin" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-signin")}>{bcms(bcmsDocumentation, "desgy-span-signin", "signin")}</span>
@@ -186,6 +194,7 @@ export const PackageStructure = () => {
                                                     <span className="font-medium text-muted">
                                                       <Icon
                                                         icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-6" data-bcms-kind="image"
                                                         className="text-primary text-base inline-block me-2"
                                                       />
                                                       <span data-bcms-field="desgy-span-signup" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-signup")}>{bcms(bcmsDocumentation, "desgy-span-signup", "signup")}</span>
@@ -204,6 +213,7 @@ export const PackageStructure = () => {
                                             <span className="font-medium text-muted">
                                               <Icon
                                                 icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-7" data-bcms-kind="image"
                                                 className="text-primary text-base inline-block me-2"
                                               />
                                               <span data-bcms-field="desgy-span-documentation" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-documentation")}>{bcms(bcmsDocumentation, "desgy-span-documentation", "documentation")}</span>
@@ -219,6 +229,7 @@ export const PackageStructure = () => {
                                       <span className="font-medium text-muted">
                                         <Icon
                                           icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-8" data-bcms-kind="image"
                                           className="text-primary text-base inline-block me-2"
                                         />
                                         <span data-bcms-field="desgy-span-api" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-api")}>{bcms(bcmsDocumentation, "desgy-span-api", "api")}</span>
@@ -247,6 +258,7 @@ export const PackageStructure = () => {
                                               <span className="font-medium text-muted">
                                                 <Icon
                                                   icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-9" data-bcms-kind="image"
                                                   className="text-primary text-base inline-block me-2"
                                                 />
                                                 <span data-bcms-field="desgy-span-auth-2" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-auth-2")}>{bcms(bcmsDocumentation, "desgy-span-auth-2", "auth")}</span>
@@ -266,6 +278,7 @@ export const PackageStructure = () => {
                                               <span className="font-medium text-muted">
                                                 <Icon
                                                   icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-10" data-bcms-kind="image"
                                                   className="text-primary text-base inline-block me-2"
                                                 />
                                                 <span data-bcms-field="desgy-span-contex" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-contex")}>{bcms(bcmsDocumentation, "desgy-span-contex", "contex")}</span>
@@ -282,6 +295,7 @@ export const PackageStructure = () => {
                                       <span className="font-medium text-muted">
                                         <Icon
                                           icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-11" data-bcms-kind="image"
                                           className="text-primary text-base inline-block me-2"
                                         />
                                         <span data-bcms-field="desgy-span-context" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-context")}>{bcms(bcmsDocumentation, "desgy-span-context", "Context")}</span>
@@ -310,6 +324,7 @@ export const PackageStructure = () => {
                                               <span className="font-medium text-muted flex items-center flex-wrap">
                                                 <Icon
                                                   icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-12" data-bcms-kind="image"
                                                   className="text-primary text-base inline-block me-2"
                                                 />
                                                 <p className="max-w-12 lg:max-w-full truncate" dangerouslySetInnerHTML={{ __html: bcms(bcmsDocumentation, "desgy-group-icon[2].p-authdialogcontexttsx", "authDialogContext.tsx") }} data-bcms-field="desgy-group-icon[2].p-authdialogcontexttsx" data-bcms-kind="richtext" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-group-icon[2].p-authdialogcontexttsx")}></p>
@@ -353,6 +368,7 @@ export const PackageStructure = () => {
                                 <span className="font-medium text-muted">
                                   <Icon
                                     icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-13" data-bcms-kind="image"
                                     className="text-primary text-base inline-block me-2"
                                   />
                                   <span data-bcms-field="desgy-span-components" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-components")}>{bcms(bcmsDocumentation, "desgy-span-components", "components")}</span>
@@ -366,6 +382,7 @@ export const PackageStructure = () => {
                                 <span className="font-medium text-muted">
                                   <Icon
                                     icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-14" data-bcms-kind="image"
                                     className="text-primary text-base inline-block me-2"
                                   />
                                   <span data-bcms-field="desgy-span-styles" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-styles")}>{bcms(bcmsDocumentation, "desgy-span-styles", "styles")}</span>
@@ -378,6 +395,7 @@ export const PackageStructure = () => {
                                 <span className="font-medium text-muted">
                                   <Icon
                                     icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-15" data-bcms-kind="image"
                                     className="text-primary text-base inline-block me-2"
                                   />
                                   <span data-bcms-field="desgy-span-types" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-types")}>{bcms(bcmsDocumentation, "desgy-span-types", "types")}</span>
@@ -390,6 +408,7 @@ export const PackageStructure = () => {
                                 <span className="font-medium text-muted">
                                   <Icon
                                     icon="tabler:folder"
+                    data-bcms-field="desgy-group-icon[2].icon-icon-16" data-bcms-kind="image"
                                     className="text-primary text-base inline-block me-2"
                                   />
                                   <span data-bcms-field="desgy-span-utils" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-span-utils")}>{bcms(bcmsDocumentation, "desgy-span-utils", "utils")}</span>

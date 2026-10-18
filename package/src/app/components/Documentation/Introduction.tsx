@@ -60,7 +60,7 @@ export const Introduction = () => {
           <h3 className=" text-2xl mt-4 font-semibold mb-6 text-black" data-bcms-field="desgy-h3-pacakge-versions" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-h3-pacakge-versions")}>{bcms(bcmsDocumentation, "desgy-h3-pacakge-versions", "Pacakge Versions")}</h3>
           <button onClick={() => setDocNavbarOpen(true)} className="p-0">
             {" "}
-            <Icon icon="gg:menu-right" className="text-3xl lg:hidden block" />
+            <Icon icon="gg:menu-right" className="text-3xl lg:hidden block" data-bcms-field="desgy-icon-icon" data-bcms-kind="image" />
           </button>
         </div>
 
@@ -117,6 +117,8 @@ export const Introduction = () => {
               height="24"
               viewBox="0 0 24 24"
               className="dark:text-black"
+              data-bcms-field="desgy-icon-icon-2"
+              data-bcms-kind="image"
             >
               <path
                 fill="none"
