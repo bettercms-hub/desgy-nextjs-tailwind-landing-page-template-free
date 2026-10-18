@@ -30,7 +30,7 @@ export default function Home() {
       <BcmsSection bind="dedicated3"><Dedicated /></BcmsSection>
       <BcmsSection bind="sec4"><Digital /></BcmsSection>
       <BcmsSection bind="honesty"><Beliefs /></BcmsSection>
-      <BcmsSection bind="sec5"><Work /></BcmsSection>
+      <BcmsSection bind="team"><Work /></BcmsSection>
       <BcmsSection bind="sec7"><Team /></BcmsSection>
       <BcmsSection bind="featured"><Featured /></BcmsSection>
       <BcmsSection bind="servicessection"><Manage /></BcmsSection>

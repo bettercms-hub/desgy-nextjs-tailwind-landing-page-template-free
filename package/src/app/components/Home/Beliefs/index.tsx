@@ -31,9 +31,8 @@ const Beliefs = () => {
             <div className="bg-[#D6FFEB] pt-12 px-10 sm:px-24 pb-52 md:pb-70 rounded-3xl bg-[url('/images/beliefs/bg.svg')] bg-no-repeat bg-bottom">
               <p className='text-lg font-normal text-primary tracking-widest mb-5 text-center sm:text-start uppercase' data-bcms-field="honesty-p-build" data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: bcms(bcmsHome, "honesty-p-build", 'BUILD') }} />
               <h3 className='text-black mb-5 text-center sm:text-start' data-bcms-field="honesty-h3-build-that-great-idea" data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: bcms(bcmsHome, "honesty-h3-build-that-great-idea", '<span class="text-primary">Build</span> that great idea that you have.') }} />
-              <p className='pt-2 mb-16 text-center sm:text-start text-black/75 text-lg'>
-                Quis ipsum suspendisse ultrices gravida risus commodo viverra
-                maecenas accumsan lacus vel facilisis.
+              <p className='pt-2 mb-16 text-center sm:text-start text-black/75 text-lg' data-bcms-field="honesty-p-build-text" data-bcms-kind="text">
+                {bcms(bcmsHome, "honesty-p-build-text", 'Quis ipsum suspendisse ultrices gravida risus commodo viverra maecenas accumsan lacus vel facilisis.')}
               </p>
               <div className='text-center sm:text-start'>
                 <Link
