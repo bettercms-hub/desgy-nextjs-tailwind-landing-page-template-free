@@ -6,6 +6,8 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react'
+import bcmsHome from "../../../../../bcms-content/home.json";
+import { bcms } from "../../../../bcms-content";
 
 const FAQ = () => {
   return (
@@ -14,10 +16,8 @@ const FAQ = () => {
       className='relative py-1 bg-cover bg-center overflow-hidde dark:bg-darkmode'>
       <div className='container mx-auto max-w-7xl px-4'>
         <div className='relative rounded-2xl py-24 bg-faq-bg bg-no-repeat bg-cover bg-primary'>
-          <p className='text-lg font-normal text-white text-center mb-6'>FAQ</p>
-          <h2 className='text-white text-center max-w-3xl mx-auto'>
-            Frequently asked questions.
-          </h2>
+          <p className='text-lg font-normal text-white text-center mb-6' data-bcms-field="faq-p-faq" data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: bcms(bcmsHome, "faq-p-faq", 'FAQ') }} />
+          <h2 className='text-white text-center max-w-3xl mx-auto' data-bcms-field="faq-h2-frequently-asked-questions" data-bcms-kind="text">{bcms(bcmsHome, "faq-h2-frequently-asked-questions", 'Frequently asked questions.')}</h2>
           <div className='w-full px-4 pt-16'>
             <div className='mx-auto w-full max-w-5xl rounded-2xl p-8 bg-white mb-5'>
               <Disclosure>

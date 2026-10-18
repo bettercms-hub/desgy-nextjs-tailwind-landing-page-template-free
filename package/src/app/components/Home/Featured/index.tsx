@@ -6,6 +6,8 @@ import 'slick-carousel/slick/slick-theme.css'
 import Image from 'next/image'
 import { featureddata } from '@/app/types/featureddata'
 import FeaturedSkeleton from '../../Skeleton/Featured'
+import bcmsHome from "../../../../../bcms-content/home.json";
+import { bcms } from "../../../../bcms-content";
 
 function SampleNextArrow(props: { className: any; style: any; onClick: any }) {
   const { className, style, onClick } = props
@@ -104,7 +106,7 @@ const Featured = () => {
     <section className="relative bg-deepSlate dark:bg-darkmode  after:absolute after:w-1/4 after:h-1/4 after:bg-[url('/images/wework/vector.svg')]  after:top-72 after:right-0 after:bg-no-repeat">
       <div className='container mx-auto max-w-7xl px-4 relative'>
         <div className='text-center overflow-hidden'>
-          <h3 className='my-5'>Featured works.</h3>
+          <h3 className='my-5' data-bcms-field="featured-h3-featured-works" data-bcms-kind="text">{bcms(bcmsHome, "featured-h3-featured-works", 'Featured works.')}</h3>
         </div>
 
         <Slider {...settings}>
@@ -116,15 +118,16 @@ const Featured = () => {
                 <div key={i}>
                   <div className='bg-transparent m-3 rounded-3xl'>
                     <Image
-                      src={items.imgSrc}
+                      src={i === 0 ? bcms(bcmsHome, "featured-img-gaby", items.imgSrc) : items.imgSrc}
+                      {...(i === 0 ? { 'data-bcms-field': 'featured-img-gaby', 'data-bcms-kind': 'image' } : {})}
                       alt='gaby'
                       width={636}
                       height={620}
                       className='rounded-2xl'
                     />
                     <div>
-                      <h4 className='max-w-sm font-bold text-center sm:text-start my-6 text-black'>
-                        {items.heading}
+                      <h4 className='max-w-sm font-bold text-center sm:text-start my-6 text-black' {...(i === 0 ? { 'data-bcms-field': 'featured-h4-brand-design-for-a', 'data-bcms-kind': 'text' } : {})}>
+                        {i === 0 ? bcms(bcmsHome, "featured-h4-brand-design-for-a", items.heading) : items.heading}
                       </h4>
                     </div>
                   </div>

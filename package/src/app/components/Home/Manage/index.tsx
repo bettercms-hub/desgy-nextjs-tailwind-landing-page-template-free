@@ -4,6 +4,8 @@ import { Switch } from '@headlessui/react'
 import Image from 'next/image'
 import PlansSkeleton from '../../Skeleton/Plans'
 import Link from 'next/link'
+import bcmsHome from "../../../../../bcms-content/home.json";
+import { bcms } from "../../../../bcms-content";
 
 const Manage = () => {
   const [plans, setPlans] = useState<any[]>([])
@@ -47,9 +49,7 @@ const Manage = () => {
   return (
     <section id='services-section'>
       <div className='container mx-auto max-w-7xl px-4'>
-        <h2 className='text-center '>
-          Manage All Your Social Media Profiles From One Place.
-        </h2>
+        <h2 className='text-center ' data-bcms-field="servicessection-h2-manage-all-your-social" data-bcms-kind="text">{bcms(bcmsHome, "servicessection-h2-manage-all-your-social", 'Manage All Your Social Media Profiles From One Place.')}</h2>
         {/*  */}
         <div className='flex sm:block'>
           <div className='flex flex-col sm:flex-row gap-5 md:justify-evenly mt-20 items-start mx-auto'>
@@ -84,30 +84,30 @@ const Manage = () => {
         </div>
         {/*  */}
         <div className='mt-6 relative'>
-          <div className='dance-text xl:-ml-80 lg:-ml-80 md:-ml-80 -ml-52  text-center -rotate-[10deg] mb-5'>
-            get 3 months free
-          </div>
+          <div className='dance-text xl:-ml-80 lg:-ml-80 md:-ml-80 -ml-52  text-center -rotate-[10deg] mb-5' data-bcms-field="servicessection-div-get-3-months-free" data-bcms-kind="text">{bcms(bcmsHome, "servicessection-div-get-3-months-free", 'get 3 months free')}</div>
           <Image
-            src='/images/manage/toggle.svg'
+            src={bcms(bcmsHome, "servicessection-img-toggle-image", '/images/manage/toggle.svg')}
+              data-bcms-field="servicessection-img-toggle-image"
+              data-bcms-kind="image"
             alt='toggle-image'
             width={24}
             height={24}
             className='absolute left-[37%] top-8'
           />
           <div className='flex items-center justify-center'>
-            <p className='text-sm font-medium mr-5'>Billed Yearly</p>
+            <p className='text-sm font-medium mr-5' data-bcms-field="servicessection-p-billed-yearly" data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: bcms(bcmsHome, "servicessection-p-billed-yearly", 'Billed Yearly') }} />
             <Switch
               checked={enabled}
               onChange={toggleEnabled}
               className='relative inline-flex h-6 w-11 items-center rounded-full bg-black'>
-              <span className='sr-only'>Toggle billing period</span>
+              <span className='sr-only' data-bcms-field="servicessection-span-toggle-billing-period" data-bcms-kind="text">{bcms(bcmsHome, "servicessection-span-toggle-billing-period", 'Toggle billing period')}</span>
               <span
                 className={`inline-block h-4 w-4 transform rounded-full bg-white transition ${
                   enabled ? 'translate-x-6' : 'translate-x-1'
                 }`}
               />
             </Switch>
-            <p className='text-sm font-medium ml-5'>Billed Monthly</p>
+            <p className='text-sm font-medium ml-5' data-bcms-field="servicessection-p-billed-monthly" data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: bcms(bcmsHome, "servicessection-p-billed-monthly", 'Billed Monthly') }} />
           </div>
         </div>
 

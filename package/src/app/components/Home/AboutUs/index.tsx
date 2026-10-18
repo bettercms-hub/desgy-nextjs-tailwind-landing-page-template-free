@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Icon } from '@iconify/react'
 import AboutSkeleton from '../../Skeleton/AboutUs'
+import bcmsHome from "../../../../../bcms-content/home.json";
+import { bcms } from "../../../../bcms-content";
 
 const Aboutus = () => {
   // fetch about data
@@ -32,16 +34,16 @@ const Aboutus = () => {
       <div className='container mx-auto max-w-7xl px-4 relative z-1'>
         <div className='p-12 bg-grey rounded-3xl'>
           <Image
-            src='/images/aboutus/dots.svg'
+            src={bcms(bcmsHome, "about-img-dots-image", '/images/aboutus/dots.svg')}
+              data-bcms-field="about-img-dots-image"
+              data-bcms-kind="image"
             width={100}
             height={100}
             alt='dots-image'
             className='absolute bottom-1 -left-20'
           />
-          <p className='text-center text-primary text-lg tracking-widest uppercase mt-10'>
-            about us
-          </p>
-          <h2 className='text-center pb-12'>Know more about us.</h2>
+          <p className='text-center text-primary text-lg tracking-widest uppercase mt-10' data-bcms-field="about-p-about-us" data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: bcms(bcmsHome, "about-p-about-us", 'about us') }} />
+          <h2 className='text-center pb-12' data-bcms-field="about-h2-know-more-about-us" data-bcms-kind="text">{bcms(bcmsHome, "about-h2-know-more-about-us", 'Know more about us.')}</h2>
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16 mt-10'>
             {loading
               ? Array.from({ length: 3 }).map((_, index) => (

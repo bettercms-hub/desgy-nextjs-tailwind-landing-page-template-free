@@ -5,6 +5,8 @@ import Image from 'next/image'
 import { Icon } from '@iconify/react'
 import { testimonials } from '@/app/types/testimonials'
 import TestimonialSkeleton from '../../Skeleton/Testimonial'
+import bcmsHome from "../../../../../bcms-content/home.json";
+import { bcms } from "../../../../bcms-content";
 
 interface TestimonialType {
   name: string
@@ -127,7 +129,7 @@ const Testimonial: React.FC = () => {
       <div className='container mx-auto max-w-7xl px-4'>
         <div className=''>
           <div className='text-center'>
-            <h2 className='my-3'>See what others are saying.</h2>
+            <h2 className='my-3' data-bcms-field="testimonialsection-h2-see-what-others-are" data-bcms-kind="text">{bcms(bcmsHome, "testimonialsection-h2-see-what-others-are", 'See what others are saying.')}</h2>
           </div>
           <div className='mt-20'>
             <Slider {...settings}>

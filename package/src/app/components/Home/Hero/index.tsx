@@ -3,6 +3,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { Icon } from '@iconify/react/dist/iconify.js'
+import bcmsHome from "../../../../../bcms-content/home.json";
+import { bcms } from "../../../../bcms-content";
 
 const Hero = () => {
   const leftAnimation = {
@@ -25,10 +27,10 @@ const Hero = () => {
         <div className='grid grid-cols-12 justify-center items-center'>
           <div className='col-span-12 xl:col-span-5 lg:col-span-6 md:col-span-12 sm:col-span-12'>
             <div className='py-2 px-5 bg-primary/15 rounded-full w-fit'>
-              <p className='text-primary text-lg font-bold'>DESIGN AGENCY</p>
+              <p className='text-primary text-lg font-bold' data-bcms-field="dedicated-p-design-agency" data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: bcms(bcmsHome, "dedicated-p-design-agency", 'DESIGN AGENCY') }} />
             </div>
-            <h1>
-              Dedicated to bring your ideas to life.
+            <h1 data-bcms-field="dedicated-h1-dedicated-to-bring-your" data-bcms-kind="text">
+              {bcms(bcmsHome, "dedicated-h1-dedicated-to-bring-your", 'Dedicated to bring your ideas to life.')}
             </h1>
             <Link href={'#'}>
               <button className='bg-primary text-white text-xl font-semibold py-5 px-12 rounded-full hover:bg-darkmode hover:cursor-pointer mt-10'>
@@ -38,7 +40,9 @@ const Hero = () => {
           </div>
           <div className='xl:col-span-7 lg:col-span-6 lg:block hidden'>
             <Image
-              src='/images/hero/banner-image.png'
+              src={bcms(bcmsHome, "dedicated-img-banner-image", '/images/hero/banner-image.png')}
+              data-bcms-field="dedicated-img-banner-image"
+              data-bcms-kind="image"
               alt='banner image'
               width={600}
               height={600}

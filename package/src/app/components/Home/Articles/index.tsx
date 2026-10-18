@@ -5,6 +5,8 @@ import Slider from 'react-slick'
 import Link from 'next/link'
 import { articles } from '@/app/types/articles'
 import ArticlesSkeleton from '../../Skeleton/Articles'
+import bcmsHome from "../../../../../bcms-content/home.json";
+import { bcms } from "../../../../bcms-content";
 
 const settings = {
   dots: true,
@@ -62,10 +64,8 @@ const Articles = () => {
     <section id='Blog' className='relative bg-grey overflow-hidden'>
       <div className='container mx-auto max-w-7xl px-4 relative'>
         <div className='text-center'>
-          <p className='text-primary text-xl font-normal tracking-widest'>
-            ARTICLES
-          </p>
-          <h2>Our latest post.</h2>
+          <p className='text-primary text-xl font-normal tracking-widest' data-bcms-field="blog-p-articles" data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: bcms(bcmsHome, "blog-p-articles", 'ARTICLES') }} />
+          <h2 data-bcms-field="blog-h2-our-latest-post" data-bcms-kind="text">{bcms(bcmsHome, "blog-h2-our-latest-post", 'Our latest post.')}</h2>
         </div>
 
         <Slider {...settings}>

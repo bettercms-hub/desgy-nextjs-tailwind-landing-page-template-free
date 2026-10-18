@@ -36,12 +36,13 @@ function readPath(root: unknown, path: string): unknown {
 const REPO_IMAGE_PATH = /^(?:@[\w-]*|~|\.{1,2}|\/?src)\/[^\s?#"'<>]*\.(?:avif|png|jpe?g|webp|gif|svg|bmp|ico|tiff?|jxl|heic)(?:[?#]\S*)?$/i;
 
 /**
- * One bare `<p>` around the whole value is the paragraph the template's own element already is:
- * a `<p>` inside a `<p>` would be split apart by the HTML parser, so render what is inside it.
+ * One bare `<p>` (or the heading a field is hosted in) around the whole value is the element the
+ * template already renders: nested inside it the HTML parser would split it apart, so render what
+ * is inside it.
  */
 function unwrapParagraph(html: string): string {
-  const inner = /^<p>([\s\S]*)<\/p>$/.exec(html.trim())?.[1];
-  return inner !== undefined && !/<\/?p[\s>]/.test(inner) ? inner : html;
+  const m = /^<(p|h[1-6])>([\s\S]*)<\/\1>$/.exec(html.trim());
+  return m && !new RegExp(`</?${m[1]}[\\s>]`).test(m[2]) ? m[2] : html;
 }
 
 /** A stored value as a template renders it: richtext is its html, an image is its url. */

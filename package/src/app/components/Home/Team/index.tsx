@@ -1,20 +1,19 @@
 import React from 'react'
 import Image from 'next/image'
+import bcmsHome from "../../../../../bcms-content/home.json";
+import { bcms } from "../../../../bcms-content";
 
 const Team = () => {
   return (
     <section className='overflow-x-hidden'>
       <div className='container mx-auto max-w-7xl px-4 relative'>
-        <h2 className='text-center max-w-5xl mx-auto'>
-          Our team belives you deserve only the best.
-        </h2>
-        <h5 className='font-medium text-center pt-10 text-black/50 max-w-3xl mx-auto'>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor.
-        </h5>
+        <h2 className='text-center max-w-5xl mx-auto' data-bcms-field="sec7-h2-our-team-belives-you" data-bcms-kind="text">{bcms(bcmsHome, "sec7-h2-our-team-belives-you", 'Our team belives you deserve only the best.')}</h2>
+        <h5 className='font-medium text-center pt-10 text-black/50 max-w-3xl mx-auto' data-bcms-field="sec7-h5-lorem-ipsum-dolor-sit" data-bcms-kind="text">{bcms(bcmsHome, "sec7-h5-lorem-ipsum-dolor-sit", 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.')}</h5>
         <div className='grid grid-cols-1 mt-16'>
           <Image
-            src='/images/team/team.webp'
+            src={bcms(bcmsHome, "sec7-img-office-image", '/images/team/team.webp')}
+              data-bcms-field="sec7-img-office-image"
+              data-bcms-kind="image"
             alt='office-image'
             height={684}
             width={1296}
