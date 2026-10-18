@@ -1,5 +1,7 @@
 import React from "react";
 import { signIn } from "next-auth/react";
+import bcmsSignin from "../../../../bcms-content/signin.json";
+import { bcms } from "../../../bcms-content";
 
 const SocialSignIn = () => {
   return (
@@ -8,8 +10,10 @@ const SocialSignIn = () => {
         <button
           onClick={() => signIn("google")}
           className="flex w-full items-center justify-center gap-2.5 rounded-lg p-3.5 hover:bg-white/80 bg-darkmode text-white hover:text-darkmode border border-darkmode"
+          data-bcms-field="desgy-button-sign-in.label"
+          data-bcms-kind="text"
         >
-          Sign In
+          {bcms(bcmsSignin, "desgy-button-sign-in.label", "Sign In")}
           <svg
             width="23"
             height="22"
@@ -51,8 +55,10 @@ const SocialSignIn = () => {
         <button
           onClick={() => signIn("github")}
           className="flex w-full items-center justify-center gap-2.5 rounded-lg p-3.5 hover:bg-white/80 bg-darkmode text-white hover:text-darkmode border border-darkmode"
+          data-bcms-field="desgy-button-sign-in.label"
+          data-bcms-kind="text"
         >
-          Sign In
+          {bcms(bcmsSignin, "desgy-button-sign-in.label", "Sign In")}
           <svg
             width="22"
             height="22"

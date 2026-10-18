@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "bettercms pull-content && next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -26,9 +26,11 @@
     "react-slick": "^0.30.2",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "@bettercms-ai/next": "^0.25.0"
   },
   "devDependencies": {
+    "@bettercms-ai/cli": "^0.14.1",
     "@tailwindcss/postcss": "^4.1.2",
     "@types/aos": "^3.0.7",
     "@types/node": "^20",

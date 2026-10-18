@@ -10,6 +10,7 @@ import MobileHeaderLink from './Navigation/MobileHeaderLink'
 import Signin from '@/app/components/Auth/SignIn'
 import SignUp from '@/app/components/Auth/SignUp'
 import { Icon } from '@iconify/react/dist/iconify.js'
+import { useBcmsChrome } from '../useBcmsChrome'
 
 const Header: React.FC = () => {
   const [navbarOpen, setNavbarOpen] = useState(false)
@@ -65,6 +66,28 @@ const Header: React.FC = () => {
     }
   }, [isSignInOpen, isSignUpOpen, navbarOpen])
 
+  const chrome = useBcmsChrome()
+  const logo = {
+    label: chrome.text('nav-a-desgy-solutions', 'Desgy Solutions'),
+    href: chrome.text('nav-a-desgy-solutions-href', '/'),
+    field: chrome.field('nav-a-desgy-solutions'),
+    hrefField: chrome.field('nav-a-desgy-solutions-href'),
+  }
+  // Only a route href was derived as a field; an #anchor stays the template's.
+  const navLink = (list: string, item: HeaderItem, index: number) => {
+    const row = `${list}[${index}]`
+    const hrefField = item.href.startsWith('/') ? chrome.field(`${row}.a-docs-href`) : undefined
+    return {
+      item: {
+        ...item,
+        label: chrome.text(`${row}.a-about-us`, item.label),
+        href: hrefField ? chrome.text(`${row}.a-docs-href`, item.href) : item.href,
+      },
+      field: chrome.field(`${row}.a-about-us`),
+      hrefField,
+    }
+  }
+
   // header data fetch
 
   const [headerData, setHeaderData] = useState<HeaderItem[]>([])
@@ -94,11 +117,11 @@ const Header: React.FC = () => {
             className={`pr-16 lg:border-r border-black/10 duration-300 ${
               sticky ? 'py-3' : 'py-7'
             }`}>
-            <Logo />
+            <Logo {...logo} />
           </div>
           <nav className='hidden lg:flex grow items-center gap-8 justify-center'>
             {headerData.map((item, index) => (
-              <HeaderLink key={index} item={item} />
+              <HeaderLink key={index} {...navLink('nav-group-about-us', item, index)} />
             ))}
           </nav>
           <div
@@ -109,8 +132,9 @@ const Header: React.FC = () => {
               className='hidden lg:block bg-transparent text-darkmode border hover:bg-darkmode border-darkmode hover:text-white px-4 py-2 rounded-lg hover:cursor-pointer'
               onClick={() => {
                 setIsSignInOpen(true)
-              }}>
-              Sign In
+              }}
+              {...chrome.bind('nav-button-sign-in')}>
+              {chrome.text('nav-button-sign-in', 'Sign In')}
             </button>
             {isSignInOpen && (
               <div className='fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center z-50'>
@@ -134,8 +158,9 @@ const Header: React.FC = () => {
               className='hidden lg:block bg-darkmode text-white hover:bg-transparent hover:text-darkmode border border-darkmode px-4 py-2 rounded-lg hover:cursor-pointer'
               onClick={() => {
                 setIsSignUpOpen(true)
-              }}>
-              Sign Up
+              }}
+              {...chrome.bind('nav-button-sign-up')}>
+              {chrome.text('nav-button-sign-up', 'Sign Up')}
             </button>
             {isSignUpOpen && (
               <div className='fixed top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center z-50'>
@@ -175,7 +200,7 @@ const Header: React.FC = () => {
           } z-50`}>
           <div className='flex items-center justify-between p-4'>
             <h2 className='text-lg font-bold text-midnight_text dark:text-midnight_text text-white'>
-              <Logo />
+              <Logo {...logo} />
             </h2>
 
             {/*  */}
@@ -187,7 +212,7 @@ const Header: React.FC = () => {
           <nav className='flex flex-col items-start p-4'>
             {headerData.map(
               (item: HeaderItem, index: Key | null | undefined) => (
-                <MobileHeaderLink key={index} item={item} />
+                <MobileHeaderLink key={index} {...navLink('nav-group-about-us-2', item, index as number)} />
               )
             )}
             <div className='mt-4 flex flex-col space-y-4 w-full'>
@@ -197,8 +222,9 @@ const Header: React.FC = () => {
                 onClick={() => {
                   setIsSignInOpen(true)
                   setNavbarOpen(false)
-                }}>
-                Sign In
+                }}
+                {...chrome.bind('nav-group-about-us-2[5].a-about-us')}>
+                {chrome.text('nav-group-about-us-2[5].a-about-us', 'Sign In')}
               </Link>
               <Link
                 href='#'
@@ -206,8 +232,9 @@ const Header: React.FC = () => {
                 onClick={() => {
                   setIsSignUpOpen(true)
                   setNavbarOpen(false)
-                }}>
-                Sign Up
+                }}
+                {...chrome.bind('nav-group-about-us-2[5].a-sign-up')}>
+                {chrome.text('nav-group-about-us-2[5].a-sign-up', 'Sign Up')}
               </Link>
             </div>
           </nav>

@@ -1,9 +1,16 @@
 import Link from 'next/link'
 
-const Logo: React.FC = () => {
+type LogoProps = { label?: string; href?: string; field?: string; hrefField?: string }
+
+const Logo: React.FC<LogoProps> = ({ label = 'Desgy Solutions', href = '/', field, hrefField }) => {
   return (
-    <Link href='/' className='text-3xl font-semibold'>
-      Desgy Solutions
+    <Link
+      href={href}
+      className='text-3xl font-semibold'
+      data-bcms-field={field}
+      data-bcms-kind={field && 'text'}
+      data-bcms-props={hrefField && `${hrefField}|url|href`}>
+      {label}
     </Link>
   )
 }

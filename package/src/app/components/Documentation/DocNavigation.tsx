@@ -1,6 +1,11 @@
 "use client";
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import bcmsDocumentation from "../../../../bcms-content/documentation.json";
+import { bcms } from "../../../bcms-content";
+
+// The field each docs menu item was derived as, in DocsNav order.
+const navFields = ["desgy-a-package-versions", "desgy-a-pacakge-structure", "desgy-a-quick-start", "desgy-a-project-configuration"];
 
 export const DocNavigation = () => {
   const [navItem, setNavItem] = useState("version");
@@ -38,7 +43,7 @@ export const DocNavigation = () => {
 
   return (
     <div className="flex flex-col gap-0.5 mt-4 items-start fixed pe-4">
-      {DocsNav.map((item) => {
+      {DocsNav.map((item, i) => {
         return (
           <Link
             key={item.id}
@@ -48,8 +53,10 @@ export const DocNavigation = () => {
               ? "bg-primary text-white"
               : "text-black/60"
               }`}
+            data-bcms-field={navFields[i]}
+            data-bcms-kind="text"
           >
-            {item.navItem}
+            {bcms(bcmsDocumentation, navFields[i], item.navItem)}
           </Link>
         );
       })}

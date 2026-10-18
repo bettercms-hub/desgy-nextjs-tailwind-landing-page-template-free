@@ -9,10 +9,12 @@ import axiosImg from "/public/images/documentation/axios.svg";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { useState } from "react";
 import { DocNavigation } from "./DocNavigation";
+import bcmsDocumentation from "../../../../bcms-content/documentation.json";
+import { bcms, bcmsImage, bcmsRowsAs, bcmsStyle } from "../../../bcms-content";
 
 export const Introduction = () => {
   const [docNavbarOpen, setDocNavbarOpen] = useState(false);
-  const PackageVersions = [
+  const PackageVersions = bcmsRowsAs(bcmsDocumentation, "desgy-group-npm-package", [
     {
       id: "1",
       packageName: "NextJs",
@@ -43,7 +45,7 @@ export const Introduction = () => {
       img: typescriptImg,
       version: "5.6.3",
     },
-  ];
+  ], { packageName: "p-nextjs" });
   return (
     <>
       <div id="version" className="md:scroll-m-[180px] scroll-m-28">
@@ -55,9 +57,7 @@ export const Introduction = () => {
         )}
 
         <div className="flex item-center justify-between">
-          <h3 className=" text-2xl mt-4 font-semibold mb-6 text-black">
-            Pacakge Versions
-          </h3>
+          <h3 className=" text-2xl mt-4 font-semibold mb-6 text-black" data-bcms-field="desgy-h3-pacakge-versions" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-h3-pacakge-versions")}>{bcms(bcmsDocumentation, "desgy-h3-pacakge-versions", "Pacakge Versions")}</h3>
           <button onClick={() => setDocNavbarOpen(true)} className="p-0">
             {" "}
             <Icon icon="gg:menu-right" className="text-3xl lg:hidden block" />
@@ -66,26 +66,26 @@ export const Introduction = () => {
 
         <div className="w-full flex justify-between lg:gap-0 gap-6 lg:flex-nowrap flex-wrap p-6 rounded-md border border-dark_border/60">
           {PackageVersions &&
-            PackageVersions.map((item) => {
+            PackageVersions.map((item, i) => {
               return (
                 <div
                   key={item.id}
-                  className="lg:w-1/5 md:w-full text-center lg:border-b-0 border-b lg:border-e lg:last:border-e-0 last:border-b-0 border-dark_border/60"
+                  className="lg:w-1/5 md:w-full text-center lg:border-b-0 border-b lg:border-e lg:last:border-e-0 last:border-b-0 border-dark_border/60" data-bcms-key={(item as { _key?: string })._key}
                 >
                   <Image
-                    src={item.img}
+                    src={bcmsImage(bcmsDocumentation, `desgy-group-npm-package[${i}].img-npm-package`, item.img)}
+                    data-bcms-field={`desgy-group-npm-package[${i}].img-npm-package`}
+                    data-bcms-kind="image"
                     alt="npm-package"
                     className=" mx-auto w-10 h-10 "
                   />
-                  <h5 className="text-2xl font-bold mt-3.5 text-black">{`v${item.version}`}</h5>
-                  <p className="text-base font-medium text-muted">
-                    {item.packageName}
-                  </p>
+                  <h5 className="text-2xl font-bold mt-3.5 text-black" data-bcms-field={`desgy-group-npm-package[${i}].h5-v1503`} data-bcms-kind="text">{bcms(bcmsDocumentation, `desgy-group-npm-package[${i}].h5-v1503`, `v${item.version}`)}</h5>
+                  <p className="text-base font-medium text-muted" data-bcms-field={`desgy-group-npm-package[${i}].p-nextjs`} data-bcms-kind="richtext" dangerouslySetInnerHTML={{ __html: item.packageName }} data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, `desgy-group-npm-package[${i}].p-nextjs`)}></p>
                 </div>
               );
             })}
         </div>
-        <div className="mt-5">
+        <div className="mt-5" data-bcms-field="desgy-body-desgy-tailwind-nextjs-template" data-bcms-kind="document">
           <p className="text-base font-medium text-muted/60">
             Desgy Tailwind NextJs Template is built with Tailwindcss and
             Nextjs.
@@ -106,9 +106,7 @@ export const Introduction = () => {
           } z-50`}
       >
         <div className="flex items-center justify-between p-4">
-          <h2 className="text-lg font-bold text-midnight_text dark:text-black">
-            Docs Menu
-          </h2>
+          <h2 className="text-lg font-bold text-midnight_text dark:text-black" data-bcms-field="desgy-h2-docs-menu" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsDocumentation, "desgy-h2-docs-menu")}>{bcms(bcmsDocumentation, "desgy-h2-docs-menu", "Docs Menu")}</h2>
           <button
             onClick={() => setDocNavbarOpen(false)}
             aria-label="Close mobile menu"

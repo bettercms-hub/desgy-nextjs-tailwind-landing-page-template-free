@@ -4,6 +4,7 @@ import { BreadcrumbProps } from "../../types/breadcrumb"; // Adjust the import p
 const Breadcrumb: React.FC<BreadcrumbProps> = ({
   pageName,
   pageDescription,
+  bcmsField,
 }) => {
   return (
     <div className="dark:bg-darkmode relative z-10 overflow-hidden pb-[60px] pt-[120px] md:pt-[130px] lg:pt-[160px]">
@@ -11,7 +12,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
       <div className="container mx-auto">
         <div className="-mx-4 flex flex-wrap items-center">
           <div className="w-full px-4">
-            <div className="text-center">
+            <div className="text-center" data-bcms-field={bcmsField} data-bcms-kind={bcmsField && "document"}>
               <h1 className="text-black mb-4 text-3xl font-bold sm:text-4xl md:text-[40px] md:leading-[1.2] dark:text-white">
                 {pageName}
               </h1>

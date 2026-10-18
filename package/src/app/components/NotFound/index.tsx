@@ -1,6 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import bcmsForgotPassword from "../../../../bcms-content/forgot-password.json";
+import { bcms, bcmsStyle } from "../../../bcms-content";
 
 const NotFound = () => {
   return (
@@ -10,7 +12,9 @@ const NotFound = () => {
           <div className="w-full px-4 md:w-5/12 lg:w-6/12">
             <div className="relative mx-auto aspect-129/138 max-w-[357px] text-center">
               <Image
-                src="/images/404.svg"
+                src={bcms(bcmsForgotPassword, "sec1-img-image", "/images/404.svg")}
+                data-bcms-field="sec1-img-image"
+                data-bcms-kind="image"
                 alt="image"
                 width={0}
                 height={0}
@@ -53,18 +57,16 @@ const NotFound = () => {
                   />
                 </svg>
               </div>
-              <h3 className="mb-5 text-2xl font-semibold text-dark dark:text-white">
-                We Can&#39;t Seem to Find The Page You&#39;re Looking For.
-              </h3>
-              <p className="mb-8 text-base text-body-color dark:text-dark-6">
-                Oops! The page you are looking for does not exist. It might have
-                been moved or deleted.
-              </p>
+              <h3 className="mb-5 text-2xl font-semibold text-dark dark:text-white" data-bcms-field="sec1-h3-we-cant-seem-to" data-bcms-kind="text" data-bcms-style="2" style={bcmsStyle(bcmsForgotPassword, "sec1-h3-we-cant-seem-to")}>{bcms(bcmsForgotPassword, "sec1-h3-we-cant-seem-to", "We Can't Seem to Find The Page You're Looking For.")}</h3>
+              <p className="mb-8 text-base text-body-color dark:text-dark-6" dangerouslySetInnerHTML={{ __html: bcms(bcmsForgotPassword, "sec1-p-oops-the-page-you", "Oops! The page you are looking for does not exist. It might have\n                been moved or deleted.") }} data-bcms-field="sec1-p-oops-the-page-you" data-bcms-kind="richtext" data-bcms-style="2" style={bcmsStyle(bcmsForgotPassword, "sec1-p-oops-the-page-you")}></p>
               <Link
-                href="/"
+                href={bcms(bcmsForgotPassword, "sec1-a-go-to-home.href", "/")}
                 className="rounded-md px-7 py-3 text-base font-medium text-white transition hover:bg-blue-700 bg-primary"
+                data-bcms-field="sec1-a-go-to-home.label"
+                data-bcms-kind="text"
+                data-bcms-props="sec1-a-go-to-home.href|url|href"
               >
-                Go To Home
+                {bcms(bcmsForgotPassword, "sec1-a-go-to-home.label", "Go To Home")}
               </Link>
             </div>
           </div>
