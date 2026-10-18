@@ -1,5 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import bcmsHome from '../../../../../bcms-content/home.json'
+import { bcms } from '../../../../bcms-content'
 
 const Insta = () => {
   return (
@@ -9,7 +11,9 @@ const Insta = () => {
         <div className='relative group mx-auto overflow-hidden rounded-3xl'>
           {/* Image */}
           <Image
-            src='/images/insta/insta1.png'
+            src={bcms(bcmsHome, 'insta-posts[0].insta-photo', '/images/insta/insta1.png')}
+            data-bcms-field='insta-posts[0].insta-photo'
+            data-bcms-kind='image'
             width={306}
             height={306}
             alt='instaOne'
@@ -17,10 +21,12 @@ const Insta = () => {
           />
 
           {/* Sliding Overlay */}
-          <Link href='https://instagram.com' target='_blank'>
+          <Link href={bcms(bcmsHome, 'insta-posts[0].insta-href', 'https://instagram.com')} data-bcms-props='insta-posts[0].insta-href|url|href' target='_blank'>
             <div className='absolute inset-0 bg-black/60 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-3xl flex items-center justify-center'>
               <Image
-                src='/images/insta/instagram.svg'
+                src={bcms(bcmsHome, 'insta-posts[0].insta-icon', '/images/insta/instagram.svg')}
+                data-bcms-field='insta-posts[0].insta-icon'
+                data-bcms-kind='image'
                 alt='instagram'
                 width={36}
                 height={36}
@@ -33,7 +39,9 @@ const Insta = () => {
         {/* Image Container 2 */}
         <div className='relative group mx-auto overflow-hidden rounded-3xl'>
           <Image
-            src='/images/insta/insta2.png'
+            src={bcms(bcmsHome, 'insta-posts[1].insta-photo', '/images/insta/insta2.png')}
+            data-bcms-field='insta-posts[1].insta-photo'
+            data-bcms-kind='image'
             width={306}
             height={306}
             alt='instaTwo'
@@ -41,10 +49,12 @@ const Insta = () => {
           />
 
           {/* Sliding Overlay */}
-          <Link href='https://instagram.com' target='_blank'>
+          <Link href={bcms(bcmsHome, 'insta-posts[1].insta-href', 'https://instagram.com')} data-bcms-props='insta-posts[1].insta-href|url|href' target='_blank'>
             <div className='absolute inset-0 bg-black/60 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-3xl flex items-center justify-center'>
               <Image
-                src='/images/insta/instagram.svg'
+                src={bcms(bcmsHome, 'insta-posts[1].insta-icon', '/images/insta/instagram.svg')}
+                data-bcms-field='insta-posts[1].insta-icon'
+                data-bcms-kind='image'
                 alt='instagram'
                 width={36}
                 height={36}
@@ -57,17 +67,21 @@ const Insta = () => {
         {/* Image Container 3 */}
         <div className='relative group mx-auto overflow-hidden rounded-3xl'>
           <Image
-            src='/images/insta/insta3.png'
+            src={bcms(bcmsHome, 'insta-posts[2].insta-photo', '/images/insta/insta3.png')}
+            data-bcms-field='insta-posts[2].insta-photo'
+            data-bcms-kind='image'
             width={306}
             height={306}
             alt='instaThree'
             className='w-full'
           />
           {/* Sliding Overlay */}
-          <Link href='https://instagram.com' target='_blank'>
+          <Link href={bcms(bcmsHome, 'insta-posts[2].insta-href', 'https://instagram.com')} data-bcms-props='insta-posts[2].insta-href|url|href' target='_blank'>
             <div className='absolute inset-0 bg-black/60 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-3xl flex items-center justify-center'>
               <Image
-                src='/images/insta/instagram.svg'
+                src={bcms(bcmsHome, 'insta-posts[2].insta-icon', '/images/insta/instagram.svg')}
+                data-bcms-field='insta-posts[2].insta-icon'
+                data-bcms-kind='image'
                 alt='instagram'
                 width={36}
                 height={36}
@@ -80,17 +94,21 @@ const Insta = () => {
         {/* Image Container 4 */}
         <div className='relative group mx-auto overflow-hidden rounded-3xl'>
           <Image
-            src='/images/insta/insta4.png'
+            src={bcms(bcmsHome, 'insta-posts[3].insta-photo', '/images/insta/insta4.png')}
+            data-bcms-field='insta-posts[3].insta-photo'
+            data-bcms-kind='image'
             width={306}
             height={306}
             alt='instaFour'
             className='w-full'
           />
           {/* Sliding Overlay */}
-          <Link href='https://instagram.com' target='_blank'>
+          <Link href={bcms(bcmsHome, 'insta-posts[3].insta-href', 'https://instagram.com')} data-bcms-props='insta-posts[3].insta-href|url|href' target='_blank'>
             <div className='absolute inset-0 bg-black/60 translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-in-out rounded-3xl flex items-center justify-center'>
               <Image
-                src='/images/insta/instagram.svg'
+                src={bcms(bcmsHome, 'insta-posts[3].insta-icon', '/images/insta/instagram.svg')}
+                data-bcms-field='insta-posts[3].insta-icon'
+                data-bcms-kind='image'
                 alt='instagram'
                 width={36}
                 height={36}

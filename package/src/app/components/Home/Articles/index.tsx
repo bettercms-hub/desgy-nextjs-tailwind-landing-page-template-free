@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { articles } from '@/app/types/articles'
 import ArticlesSkeleton from '../../Skeleton/Articles'
 import bcmsHome from "../../../../../bcms-content/home.json";
-import { bcms } from "../../../../bcms-content";
+import { bcms, bcmsRowsAs } from "../../../../bcms-content";
 
 const settings = {
   dots: true,
@@ -59,6 +59,7 @@ const Articles = () => {
 
     fetchData()
   }, [])
+  const posts: any[] = bcmsRowsAs(bcmsHome, 'articles', articles as any[], { time: 'article-time', heading: 'article-title', heading2: 'article-subtitle', name: 'article-source', date: 'article-date', src: 'article-image' })
 
   return (
     <section id='Blog' className='relative bg-grey overflow-hidden'>
@@ -73,11 +74,13 @@ const Articles = () => {
             ? Array.from({ length: 3 }).map((_, i) => (
                 <ArticlesSkeleton key={i} />
               ))
-            : articles.map((items, i) => (
+            : posts.map((items, i) => (
                 <div key={i}>
                   <div className='bg-white m-3 px-3 pt-3 pb-12 my-10 shadow-lg rounded-4xl relative'>
                     <Image
-                      src={items.imgSrc}
+                      src={items.src ?? items.imgSrc}
+                      data-bcms-field={`articles[${i}].article-image`}
+                      data-bcms-kind="image"
                       alt='gaby'
                       width={389}
                       height={262}
@@ -85,16 +88,18 @@ const Articles = () => {
                     />
                     <Link
                       href='/'
-                      className='absolute text-base bg-primary text-white hover:bg-black hover:shadow-xl py-3 px-6 rounded-full top-56 right-11'>
+                      className='absolute text-base bg-primary text-white hover:bg-black hover:shadow-xl py-3 px-6 rounded-full top-56 right-11'
+                      data-bcms-field={`articles[${i}].article-time`}
+                      data-bcms-kind="text">
                       {items.time} read
                     </Link>
-                    <h5 className='font-bold pt-6'>{items.heading}</h5>
-                    <h5 className='font-bold pt-1'>{items.heading2}</h5>
+                    <h5 className='font-bold pt-6' data-bcms-field={`articles[${i}].article-title`} data-bcms-kind="text">{items.heading}</h5>
+                    <h5 className='font-bold pt-1' data-bcms-field={`articles[${i}].article-subtitle`} data-bcms-kind="text">{items.heading2}</h5>
                     <div>
-                      <h3 className='text-sm font-normal pt-6 pb-2 text-black/75 dark:text-white/75'>
+                      <h3 className='text-sm font-normal pt-6 pb-2 text-black/75 dark:text-white/75' data-bcms-field={`articles[${i}].article-source`} data-bcms-kind="text">
                         {items.name}
                       </h3>
-                      <h3 className='text-sm font-normal pb-1 text-black/75 dark:text-white/75'>
+                      <h3 className='text-sm font-normal pb-1 text-black/75 dark:text-white/75' data-bcms-field={`articles[${i}].article-date`} data-bcms-kind="text">
                         {items.date}
                       </h3>
                     </div>

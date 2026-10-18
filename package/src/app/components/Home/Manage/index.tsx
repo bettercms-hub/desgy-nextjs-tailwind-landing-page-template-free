@@ -5,7 +5,7 @@ import Image from 'next/image'
 import PlansSkeleton from '../../Skeleton/Plans'
 import Link from 'next/link'
 import bcmsHome from "../../../../../bcms-content/home.json";
-import { bcms } from "../../../../bcms-content";
+import { bcms, bcmsRowsAs } from "../../../../bcms-content";
 
 const Manage = () => {
   const [plans, setPlans] = useState<any[]>([])
@@ -41,9 +41,12 @@ const Manage = () => {
     )
   }
 
-  const filteredData = plans.map((plan) => ({
+  // The CMS plans over the fetched ones, kept in the fetched shape the cards render.
+  const planRows: any[] = bcmsRowsAs(bcmsHome, 'plans', plans, { heading: 'plan-name', user: 'plan-unit', cta: 'plan-cta', monthly: 'plan-price-monthly', yearly: 'plan-price-yearly', profiles: 'plan-profiles', posts: 'plan-posts', templates: 'plan-templates', view: 'plan-view', support: 'plan-support' })
+  const filteredData = planRows.map((plan) => ({
     ...plan,
-    price: plan.price[selectedCategory],
+    price: { monthly: plan.monthly ?? plan.price?.monthly, yearly: plan.yearly ?? plan.price?.yearly }[selectedCategory],
+    features: Object.fromEntries(Object.keys(plan.features ?? {}).map((key) => [key, plan[key] ?? plan.features[key]])),
   }))
 
   return (
@@ -55,30 +58,36 @@ const Manage = () => {
           <div className='flex flex-col sm:flex-row gap-5 md:justify-evenly mt-20 items-start mx-auto'>
             <div className='flex gap-5 items-center justify-center md:justify-start'>
               <Image
-                src='/images/manage/right.svg'
+                src={bcms(bcmsHome, "manage-perks[0].manage-perk-icon", '/images/manage/right.svg')}
+                data-bcms-field="manage-perks[0].manage-perk-icon"
+                data-bcms-kind="image"
                 alt='right-icon'
                 width={21}
                 height={14}
               />
-              <p className='text-lg font-semibold'>Free 15-day trial</p>
+              <p className='text-lg font-semibold' data-bcms-field="manage-perks[0].manage-perk" data-bcms-kind="text">{bcms(bcmsHome, "manage-perks[0].manage-perk", 'Free 15-day trial')}</p>
             </div>
             <div className='flex gap-5 items-center justify-center md:justify-start'>
               <Image
-                src='/images/manage/right.svg'
+                src={bcms(bcmsHome, "manage-perks[1].manage-perk-icon", '/images/manage/right.svg')}
+                data-bcms-field="manage-perks[1].manage-perk-icon"
+                data-bcms-kind="image"
                 alt='right-icon'
                 width={21}
                 height={14}
               />
-              <p className='text-lg font-semibold'>Unlimited Team Members</p>
+              <p className='text-lg font-semibold' data-bcms-field="manage-perks[1].manage-perk" data-bcms-kind="text">{bcms(bcmsHome, "manage-perks[1].manage-perk", 'Unlimited Team Members')}</p>
             </div>
             <div className='flex gap-5 items-center justify-center md:justify-start'>
               <Image
-                src='/images/manage/right.svg'
+                src={bcms(bcmsHome, "manage-perks[2].manage-perk-icon", '/images/manage/right.svg')}
+                data-bcms-field="manage-perks[2].manage-perk-icon"
+                data-bcms-kind="image"
                 alt='right-icon'
                 width={21}
                 height={14}
               />
-              <p className='text-lg font-semibold'>Cancel Anytime</p>
+              <p className='text-lg font-semibold' data-bcms-field="manage-perks[2].manage-perk" data-bcms-kind="text">{bcms(bcmsHome, "manage-perks[2].manage-perk", 'Cancel Anytime')}</p>
             </div>
           </div>
         </div>
@@ -118,19 +127,21 @@ const Manage = () => {
                 <div
                   className='shadow-manage-shadow border border-border text-center p-10 rounded-3xl'
                   key={i}>
-                  <h5 className='mb-3'>{items.heading}</h5>
-                  <p className='text-6xl font-extrabold mb-3'>${items.price}</p>
-                  <p className='text-sm font-medium mb-6'>{items.user}</p>
+                  <h5 className='mb-3' data-bcms-field={`plans[${i}].plan-name`} data-bcms-kind="text">{items.heading}</h5>
+                  <p className='text-6xl font-extrabold mb-3' data-bcms-field={`plans[${i}].plan-price-${selectedCategory}`} data-bcms-kind="text">${items.price}</p>
+                  <p className='text-sm font-medium mb-6' data-bcms-field={`plans[${i}].plan-unit`} data-bcms-kind="text">{items.user}</p>
                   <Link href={'#'}>
-                    <button className='text-sm font-bold text-primary bg-transparent hover:bg-primary hover:text-white border-2 border-primary rounded-full py-4 px-12 mb-6 hover:cursor-pointer'>
-                      Start My 15-day Trial
+                    <button className='text-sm font-bold text-primary bg-transparent hover:bg-primary hover:text-white border-2 border-primary rounded-full py-4 px-12 mb-6 hover:cursor-pointer' data-bcms-field={`plans[${i}].plan-cta`} data-bcms-kind="text">
+                      {items.cta ?? 'Start My 15-day Trial'}
                     </button>
                   </Link>
                   {/* Map through the features object and render each key-value pair dynamically */}
                   {Object.entries(items.features).map((value: any, index) => (
                     <p
                       className='text-sm font-medium text-darkgrey mb-3'
-                      key={index}>
+                      key={index}
+                      data-bcms-field={`plans[${i}].plan-${value[0]}`}
+                      data-bcms-kind="text">
                       {value}
                     </p>
                   ))}

@@ -7,7 +7,7 @@ import Slider from 'react-slick'
 import { workdata } from '@/app/types/workdata'
 import WorkSkeleton from '../../Skeleton/Work'
 import bcmsHome from "../../../../../bcms-content/home.json";
-import { bcms } from "../../../../bcms-content";
+import { bcms, bcmsRowsAs } from "../../../../bcms-content";
 
 const settings = {
   dots: false,
@@ -71,6 +71,7 @@ const Work = () => {
 
     fetchData()
   }, [])
+  const members: any[] = bcmsRowsAs(bcmsHome, 'team-members', work as any[], { name: 'team-member-name', profession: 'team-member-role', src: 'team-member-photo' })
 
   return (
     <section
@@ -85,12 +86,14 @@ const Work = () => {
       <Slider {...settings}>
         {loading
           ? Array.from({ length: 5 }).map((_, i) => <WorkSkeleton key={i} />)
-          : work.map((items, i) => (
+          : members.map((items, i) => (
               <div key={i}>
                 <div className='bg-white dark:bg-darkHeroBg m-3 py-14 my-10 text-center shadow-xl rounded-3xl'>
                   <div className='relative'>
                     <Image
-                      src={items.imgSrc}
+                      src={items.src ?? items.imgSrc}
+                      data-bcms-field={`team-members[${i}].team-member-photo`}
+                      data-bcms-kind="image"
                       alt='gaby'
                       width={182}
                       height={182}
@@ -106,10 +109,10 @@ const Work = () => {
                       />
                     </div>
                   </div>
-                  <h6 className='text-xl text-black dark:text-white font-bold pt-14'>
+                  <h6 className='text-xl text-black dark:text-white font-bold pt-14' data-bcms-field={`team-members[${i}].team-member-name`} data-bcms-kind="text">
                     {items.name}
                   </h6>
-                  <p className='text-base dark:text-white font-normal pt-4 pb-2'>
+                  <p className='text-base dark:text-white font-normal pt-4 pb-2' data-bcms-field={`team-members[${i}].team-member-role`} data-bcms-kind="text">
                     {items.profession}
                   </p>
                 </div>

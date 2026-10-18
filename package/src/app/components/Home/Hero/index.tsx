@@ -33,8 +33,8 @@ const Hero = () => {
               {bcms(bcmsHome, "dedicated-h1-dedicated-to-bring-your", 'Dedicated to bring your ideas to life.')}
             </h1>
             <Link href={'#'}>
-              <button className='bg-primary text-white text-xl font-semibold py-5 px-12 rounded-full hover:bg-darkmode hover:cursor-pointer mt-10'>
-                Get started
+              <button className='bg-primary text-white text-xl font-semibold py-5 px-12 rounded-full hover:bg-darkmode hover:cursor-pointer mt-10' data-bcms-field="hero-a-get-started" data-bcms-kind="text">
+                {bcms(bcmsHome, "hero-a-get-started", 'Get started')}
               </button>
             </Link>
           </div>

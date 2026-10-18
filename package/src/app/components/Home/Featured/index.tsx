@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { featureddata } from '@/app/types/featureddata'
 import FeaturedSkeleton from '../../Skeleton/Featured'
 import bcmsHome from "../../../../../bcms-content/home.json";
-import { bcms } from "../../../../bcms-content";
+import { bcms, bcmsRowsAs } from "../../../../bcms-content";
 
 function SampleNextArrow(props: { className: any; style: any; onClick: any }) {
   const { className, style, onClick } = props
@@ -101,6 +101,7 @@ const Featured = () => {
 
     fetchData()
   }, [])
+  const works: any[] = bcmsRowsAs(bcmsHome, 'featured-works', featured as any[], { heading: 'featured-work-title', src: 'featured-work-image' })
 
   return (
     <section className="relative bg-deepSlate dark:bg-darkmode  after:absolute after:w-1/4 after:h-1/4 after:bg-[url('/images/wework/vector.svg')]  after:top-72 after:right-0 after:bg-no-repeat">
@@ -114,20 +115,21 @@ const Featured = () => {
             ? Array.from({ length: 2 }).map((_, index) => (
                 <FeaturedSkeleton key={index} />
               ))
-            : featured.map((items, i) => (
+            : works.map((items, i) => (
                 <div key={i}>
                   <div className='bg-transparent m-3 rounded-3xl'>
                     <Image
-                      src={i === 0 ? bcms(bcmsHome, "featured-img-gaby", items.imgSrc) : items.imgSrc}
-                      {...(i === 0 ? { 'data-bcms-field': 'featured-img-gaby', 'data-bcms-kind': 'image' } : {})}
+                      src={items.src ?? items.imgSrc}
+                      data-bcms-field={`featured-works[${i}].featured-work-image`}
+                      data-bcms-kind="image"
                       alt='gaby'
                       width={636}
                       height={620}
                       className='rounded-2xl'
                     />
                     <div>
-                      <h4 className='max-w-sm font-bold text-center sm:text-start my-6 text-black' {...(i === 0 ? { 'data-bcms-field': 'featured-h4-brand-design-for-a', 'data-bcms-kind': 'text' } : {})}>
-                        {i === 0 ? bcms(bcmsHome, "featured-h4-brand-design-for-a", items.heading) : items.heading}
+                      <h4 className='max-w-sm font-bold text-center sm:text-start my-6 text-black' data-bcms-field={`featured-works[${i}].featured-work-title`} data-bcms-kind="text">
+                        {items.heading}
                       </h4>
                     </div>
                   </div>

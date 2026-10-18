@@ -24,9 +24,7 @@ const FAQ = () => {
                 {({ open }) => (
                   <div>
                     <DisclosureButton className='flex w-full justify-between items-center text-left text-2xl font-medium focus:outline-hidden hover:cursor-pointer'>
-                      <span className='text-black'>
-                        Can you design my site?
-                      </span>
+                      <span className='text-black' data-bcms-field="faq-items[0].faq-question" data-bcms-kind="text">{bcms(bcmsHome, "faq-items[0].faq-question", 'Can you design my site?')}</span>
                       <div
                         className={`h-5 w-5 transform transition-transform duration-300 ${
                           open ? 'rotate-180' : ''
@@ -35,12 +33,7 @@ const FAQ = () => {
                       </div>
                     </DisclosureButton>
                     <DisclosurePanel className='text-base text-black/50 font-normal text-left pt-4 mt-6 border-t border-border'>
-                      <div className='lg:max-w-70%'>
-                        Craven omni memoria patriae zombieland clairvius
-                        narcisse religionis sunt diri undead historiarum.
-                        Golums, zombies unrelenting et Raimi fascinati
-                        beheading.
-                      </div>
+                      <div className='lg:max-w-70%' data-bcms-field="faq-items[0].faq-answer" data-bcms-kind="text">{bcms(bcmsHome, "faq-items[0].faq-answer", 'Craven omni memoria patriae zombieland clairvius narcisse religionis sunt diri undead historiarum. Golums, zombies unrelenting et Raimi fascinati beheading.')}</div>
                     </DisclosurePanel>
                   </div>
                 )}
@@ -51,7 +44,7 @@ const FAQ = () => {
                 {({ open }) => (
                   <>
                     <DisclosureButton className='flex w-full justify-between items-center rounded-lg text-left text-2xl font-medium focus:outline-hidden hover:cursor-pointer'>
-                      <span className='text-black'>Can you code my site?</span>
+                      <span className='text-black' data-bcms-field="faq-items[1].faq-question" data-bcms-kind="text">{bcms(bcmsHome, "faq-items[1].faq-question", 'Can you code my site?')}</span>
                       <div
                         className={`h-5 w-5 transform transition-transform duration-300 ${
                           open ? 'rotate-180' : ''
@@ -60,12 +53,7 @@ const FAQ = () => {
                       </div>
                     </DisclosureButton>
                     <DisclosurePanel className='text-base text-black/50 pt-4 mt-6 text-left border-t border-border'>
-                      <div className='lg:max-w-70%'>
-                        Craven omni memoria patriae zombieland clairvius
-                        narcisse religionis sunt diri undead historiarum.
-                        Golums, zombies unrelenting et Raimi fascinati
-                        beheading.
-                      </div>
+                      <div className='lg:max-w-70%' data-bcms-field="faq-items[1].faq-answer" data-bcms-kind="text">{bcms(bcmsHome, "faq-items[1].faq-answer", 'Craven omni memoria patriae zombieland clairvius narcisse religionis sunt diri undead historiarum. Golums, zombies unrelenting et Raimi fascinati beheading.')}</div>
                     </DisclosurePanel>
                   </>
                 )}
@@ -77,7 +65,7 @@ const FAQ = () => {
                 {({ open }) => (
                   <>
                     <DisclosureButton className='flex w-full justify-between items-center rounded-lg text-left text-2xl font-medium focus:outline-hidden hover:cursor-pointer'>
-                      <span className='text-black'>Where are you located?</span>
+                      <span className='text-black' data-bcms-field="faq-items[2].faq-question" data-bcms-kind="text">{bcms(bcmsHome, "faq-items[2].faq-question", 'Where are you located?')}</span>
                       <div
                         className={`h-5 w-5 transform transition-transform duration-300 ${
                           open ? 'rotate-180' : ''
@@ -86,12 +74,7 @@ const FAQ = () => {
                       </div>
                     </DisclosureButton>
                     <DisclosurePanel className='text-base text-black/50 pt-4 mt-6 font-normal text-left border-t border-border'>
-                      <div className='lg:max-w-70%'>
-                        Craven omni memoria patriae zombieland clairvius
-                        narcisse religionis sunt diri undead historiarum.
-                        Golums, zombies unrelenting et Raimi fascinati
-                        beheading.
-                      </div>
+                      <div className='lg:max-w-70%' data-bcms-field="faq-items[2].faq-answer" data-bcms-kind="text">{bcms(bcmsHome, "faq-items[2].faq-answer", 'Craven omni memoria patriae zombieland clairvius narcisse religionis sunt diri undead historiarum. Golums, zombies unrelenting et Raimi fascinati beheading.')}</div>
                     </DisclosurePanel>
                   </>
                 )}

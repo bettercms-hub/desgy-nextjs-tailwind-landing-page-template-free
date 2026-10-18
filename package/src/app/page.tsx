@@ -25,19 +25,19 @@ export default function Home() {
   return (
     <main>
       <BcmsSections {...sectionsFor("home")}>
-      <BcmsSection bind="sec0"><Hero /></BcmsSection>
-      <BcmsSection bind="sec1"><Aboutus /></BcmsSection>
-      <BcmsSection bind="sec2"><Dedicated /></BcmsSection>
-      <BcmsSection bind="sec3"><Digital /></BcmsSection>
-      <BcmsSection bind="sec4"><Beliefs /></BcmsSection>
+      <BcmsSection bind="dedicated"><Hero /></BcmsSection>
+      <BcmsSection bind="about"><Aboutus /></BcmsSection>
+      <BcmsSection bind="dedicated3"><Dedicated /></BcmsSection>
+      <BcmsSection bind="sec4"><Digital /></BcmsSection>
+      <BcmsSection bind="honesty"><Beliefs /></BcmsSection>
       <BcmsSection bind="sec5"><Work /></BcmsSection>
-      <BcmsSection bind="sec6"><Team /></BcmsSection>
-      <BcmsSection bind="sec7"><Featured /></BcmsSection>
-      <BcmsSection bind="sec8"><Manage /></BcmsSection>
-      <BcmsSection bind="sec9"><FAQ /></BcmsSection>
+      <BcmsSection bind="sec7"><Team /></BcmsSection>
+      <BcmsSection bind="featured"><Featured /></BcmsSection>
+      <BcmsSection bind="servicessection"><Manage /></BcmsSection>
+      <BcmsSection bind="faq"><FAQ /></BcmsSection>
       <BcmsSection bind="sec10"><Testimonial /></BcmsSection>
-      <BcmsSection bind="sec11"><Articles /></BcmsSection>
-      <BcmsSection bind="sec12"><Join /></BcmsSection>
+      <BcmsSection bind="blog"><Articles /></BcmsSection>
+      <BcmsSection bind="take"><Join /></BcmsSection>
       <BcmsSection bind="sec13"><Insta /></BcmsSection>
       </BcmsSections>
     </main>

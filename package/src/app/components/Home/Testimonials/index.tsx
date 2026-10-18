@@ -6,7 +6,7 @@ import { Icon } from '@iconify/react'
 import { testimonials } from '@/app/types/testimonials'
 import TestimonialSkeleton from '../../Skeleton/Testimonial'
 import bcmsHome from "../../../../../bcms-content/home.json";
-import { bcms } from "../../../../bcms-content";
+import { bcms, bcmsRowsAs } from "../../../../bcms-content";
 
 interface TestimonialType {
   name: string
@@ -18,6 +18,7 @@ interface TestimonialType {
 
 interface TestimonialCardProps {
   items: TestimonialType
+  i: number
 }
 
 const settings = {
@@ -59,27 +60,29 @@ const settings = {
   ],
 }
 
-const TestimonialCard: React.FC<TestimonialCardProps> = ({ items }) => {
-  const validRating = Math.min(Math.max(items.rating, 0), 5)
+const TestimonialCard: React.FC<TestimonialCardProps> = ({ items, i }) => {
+  const validRating = Math.min(Math.max(Number(items.rating), 0), 5)
 
   return (
     <div className='relative py-10'>
       <div className='bg-white dark:bg-darkHeroBg shadow-testimonial m-3 p-10 rounded-3xl'>
         <Image
-          src={items.imgSrc}
+          src={(items as any).src ?? items.imgSrc}
+          data-bcms-field={`testimonials[${i}].testimonial-photo`}
+          data-bcms-kind="image"
           alt={`${items.name} - ${items.profession} testimonial image`}
           width={71}
           height={71}
           className='inline-block m-auto absolute top-3'
         />
-        <p className='text-base font-medium my-4 text-black'>{items.comment}</p>
+        <p className='text-base font-medium my-4 text-black' data-bcms-field={`testimonials[${i}].testimonial-quote`} data-bcms-kind="text">{items.comment}</p>
         <hr style={{ color: 'border' }} />
         <div className='flex justify-between'>
           <div>
-            <p className='text-base font-medium pt-4 pb-2 text-black dark:text-white'>
+            <p className='text-base font-medium pt-4 pb-2 text-black dark:text-white' data-bcms-field={`testimonials[${i}].testimonial-name`} data-bcms-kind="text">
               {items.name}
             </p>
-            <p className='text-xs font-medium pb-2 text-black/50'>
+            <p className='text-xs font-medium pb-2 text-black/50' data-bcms-field={`testimonials[${i}].testimonial-role`} data-bcms-kind="text">
               {items.profession}
             </p>
           </div>
@@ -121,6 +124,7 @@ const Testimonial: React.FC = () => {
     }
     fetchData()
   }, [])
+  const quotes: any[] = bcmsRowsAs(bcmsHome, 'testimonials', testimonals as any[], { name: 'testimonial-name', profession: 'testimonial-role', comment: 'testimonial-quote', src: 'testimonial-photo', rating: 'testimonial-rating' })
 
   return (
     <section
@@ -137,8 +141,8 @@ const Testimonial: React.FC = () => {
                 ? Array.from({ length: 3 }).map((_, i) => (
                     <TestimonialSkeleton key={i} />
                   ))
-                : testimonals.map((items, i) => (
-                    <TestimonialCard key={i} items={items} />
+                : quotes.map((items, i) => (
+                    <TestimonialCard key={i} items={items} i={i} />
                   ))}
             </Slider>
           </div>

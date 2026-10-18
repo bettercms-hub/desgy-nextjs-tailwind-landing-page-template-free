@@ -75,6 +75,15 @@ const Header: React.FC = () => {
   }
   // Only a route href was derived as a field; an #anchor stays the template's.
   const navLink = (list: string, item: HeaderItem, index: number) => {
+    // Home holds its nav as one `home-nav-links` list, read by both the desktop and mobile menus.
+    const home = `home-nav-links[${index}]`
+    if (chrome.field(`${home}.home-nav-label`)) {
+      return {
+        item: { ...item, label: chrome.text(`${home}.home-nav-label`, item.label), href: chrome.text(`${home}.home-nav-href`, item.href) },
+        field: `${home}.home-nav-label`,
+        hrefField: chrome.field(`${home}.home-nav-href`),
+      }
+    }
     const row = `${list}[${index}]`
     const hrefField = item.href.startsWith('/') ? chrome.field(`${row}.a-docs-href`) : undefined
     return {
@@ -87,6 +96,10 @@ const Header: React.FC = () => {
       hrefField,
     }
   }
+
+  // Home has no mobile nav list; its mobile buttons read the desktop buttons' fields.
+  const mobileSignIn = chrome.field('nav-group-about-us-2[5].a-about-us') ?? 'nav-button-sign-in'
+  const mobileSignUp = chrome.field('nav-group-about-us-2[5].a-sign-up') ?? 'nav-button-sign-up'
 
   // header data fetch
 
@@ -223,8 +236,8 @@ const Header: React.FC = () => {
                   setIsSignInOpen(true)
                   setNavbarOpen(false)
                 }}
-                {...chrome.bind('nav-group-about-us-2[5].a-about-us')}>
-                {chrome.text('nav-group-about-us-2[5].a-about-us', 'Sign In')}
+                {...chrome.bind(mobileSignIn)}>
+                {chrome.text(mobileSignIn, 'Sign In')}
               </Link>
               <Link
                 href='#'
@@ -233,8 +246,8 @@ const Header: React.FC = () => {
                   setIsSignUpOpen(true)
                   setNavbarOpen(false)
                 }}
-                {...chrome.bind('nav-group-about-us-2[5].a-sign-up')}>
-                {chrome.text('nav-group-about-us-2[5].a-sign-up', 'Sign Up')}
+                {...chrome.bind(mobileSignUp)}>
+                {chrome.text(mobileSignUp, 'Sign Up')}
               </Link>
             </div>
           </nav>

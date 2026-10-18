@@ -6,7 +6,7 @@ import Image from 'next/image'
 import { Icon } from '@iconify/react'
 import AboutSkeleton from '../../Skeleton/AboutUs'
 import bcmsHome from "../../../../../bcms-content/home.json";
-import { bcms } from "../../../../bcms-content";
+import { bcms, bcmsRowsAs } from "../../../../bcms-content";
 
 const Aboutus = () => {
   // fetch about data
@@ -28,6 +28,8 @@ const Aboutus = () => {
     }
     fetchData()
   }, [])
+  // The CMS rows over the fetched cards; `src` is the CMS picture, the alt stays the template's.
+  const cards: any[] = bcmsRowsAs(bcmsHome, 'about-cards', about as any[], { heading: 'about-card-heading', src: 'about-card-image', paragraph: 'about-card-text', link: 'about-card-link' })
 
   return (
     <section id='About' className=' bg-cover bg-center overflow-hidden'>
@@ -49,26 +51,30 @@ const Aboutus = () => {
               ? Array.from({ length: 3 }).map((_, index) => (
                   <AboutSkeleton key={index} />
                 ))
-              : about.map((item, i) => (
+              : cards.map((item, i) => (
                   <div
                     key={i}
                     className='hover:bg-darkmode bg-white rounded-3xl p-8 shadow-xl group'>
-                    <h5 className='group-hover:text-white mb-5'>
+                    <h5 className='group-hover:text-white mb-5' data-bcms-field={`about-cards[${i}].about-card-heading`} data-bcms-kind="text">
                       {item.heading}
                     </h5>
                     <Image
-                      src={item.imgSrc}
+                      src={item.src ?? item.imgSrc}
+                      data-bcms-field={`about-cards[${i}].about-card-image`}
+                      data-bcms-kind="image"
                       alt={item.imgSrc}
                       width={100}
                       height={100}
                       className='mb-5'
                     />
-                    <p className='text-lg font-normal text-black group-hover:text-white mb-5'>
+                    <p className='text-lg font-normal text-black group-hover:text-white mb-5' data-bcms-field={`about-cards[${i}].about-card-text`} data-bcms-kind="text">
                       {item.paragraph}
                     </p>
                     <Link
                       href='#'
-                      className='text-18 font-semibold text-primary hover-underline flex items-center'>
+                      className='text-18 font-semibold text-primary hover-underline flex items-center'
+                      data-bcms-field={`about-cards[${i}].about-card-link`}
+                      data-bcms-kind="text">
                       {item.link}
                       <Icon
                         icon='tabler:chevron-right'
